@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Index } from "./views/index"
 
-function App() {
+const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants';
+const key = 'Api-Key q3MNxtfep8Gt';
+
+// Let's use app as a shell to display a home/index
+export const App = () => {
+  const [fetchedData, setFetchedData] = useState([]);
+  useEffect(() => {
+    fetch(URL, {
+      headers: {
+        'Authorization': key,
+      },
+    }).then(response => response.json())
+    .then(data =>{setFetchedData(data)}
+    )
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.js</code> and save to reload. holloer?? yp
         </p>
         <a
           className="App-link"
@@ -16,11 +32,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <Index data={fetchedData} />
         </a>
       </header>
     </div>
   );
 }
-
-export default App;
