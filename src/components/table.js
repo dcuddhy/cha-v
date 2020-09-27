@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { FilterContext } from '../contexts/filterContext'
 
 // Should probably break up the table into more components.  I say keep running for now.
 export const Table = (tableData) => {
-  console.log('tableData: ', tableData);
   const data = tableData.tableData.sort((a, b) => (a.name > b.name) ? 1 : -1);
-  
+
+  const {filterValue} = useContext(FilterContext);
+  const filteredData = data.filter(elem => elem.state.toLowerCase().includes(filterValue.toLowerCase()));
+
   return (
+    data.length ? 
     <table className="table">
       <thead>
         <tr>
@@ -27,9 +31,9 @@ export const Table = (tableData) => {
         </tr>
       </thead>
       <tbody>
-        {data.map(row => {
+        {filteredData.map((row, r) => {
           return (
-            <tr>
+            <tr key={r}>
               <td>
                 {row.name}
               </td>
@@ -50,5 +54,7 @@ export const Table = (tableData) => {
           })}
       </tbody>
     </table>
+    : 
+    <div>Oops! Something went wrong...</div>
   );
 }
