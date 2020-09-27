@@ -8,10 +8,17 @@ export const Table = (tableData) => {
   const data = tableData.tableData.sort((a, b) => (a.name > b.name) ? 1 : -1)
     // State filter is pretty straight forward.
     .filter(elem => elem.state.toLowerCase().includes(filterValues.state.toLowerCase()))
-    // Genre filtering logic should be an array of strings.  we should filter on each of those.
+    // Genre filtering logic should filter on an array of strings separated by commas.
     // User inputs should be an array separated by spaces, commas, periods.
     // Then we should compare the two arrays.
-    .filter(elem => elem.genre.toLowerCase().includes(filterValues.genre.toLowerCase()));
+    .filter(elem => elem.genre.toLowerCase().includes(filterValues.genre.toLowerCase()))
+    // Search filtering logic should filter on an array of strings separated by commas.
+    // User inputs should be an array separated by spaces, commas, periods.
+    // Then we should compare the two arrays.
+    .filter(elem => elem.name.toLowerCase().includes(filterValues.search.toLowerCase())
+      || elem.city.toLowerCase().includes(filterValues.search.toLowerCase())
+      || elem.genre.toLowerCase().includes(filterValues.search.toLowerCase())
+    );
 
     return (
     data.length ? 

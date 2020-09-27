@@ -16,7 +16,7 @@ export const App = () => {
   const filters = {
     state: '',
     genre: '',
-    search: [],
+    search: '',
   }
   const [filterValues, setFilterValues] = useState(filters);
   useEffect(() => {
