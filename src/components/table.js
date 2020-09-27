@@ -1,5 +1,11 @@
 import React, {useContext} from 'react';
 import { FilterContext } from '../contexts/filterContext'
+import { Pagination} from './Pagination'
+
+const chunk = (arr, size) =>
+  Array.from({ length: Math.ceil(arr.length / size) }, (x, i) =>
+    arr.slice(i * size, i * size + size)
+  );
 
 // Should probably break up the table into more components.  I say keep running for now.
 export const Table = (tableData) => {
@@ -20,8 +26,14 @@ export const Table = (tableData) => {
       || elem.genre.toLowerCase().includes(filterValues.search.toLowerCase())
     );
 
+    const paginatedData = chunk(data, 10);
+    const pagesArray = paginatedData.map((page, p) => p);
+    const displayData = paginatedData[filterValues.pagination];
+
     return (
-    data.length ? 
+      displayData && displayData.length ?
+    <>
+      <Pagination pagesArray={pagesArray} />
     <table className="table">
       <thead>
         <tr>
@@ -43,7 +55,7 @@ export const Table = (tableData) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((row, r) => {
+        {displayData.map((row, r) => {
           return (
             <tr key={r}>
               <td>
@@ -66,7 +78,8 @@ export const Table = (tableData) => {
           })}
       </tbody>
     </table>
+    </>
     : 
-    <div>Oops! Something went wrong...</div>
+    <div>Oops! There are no results...</div>
   );
 }

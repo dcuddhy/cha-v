@@ -1,0 +1,6 @@
+.page-button {
+  cursor: pointer;
+  display: inline-block;
+  margin: 5px;
+  padding: 4px;
+}

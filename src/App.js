@@ -17,6 +17,7 @@ export const App = () => {
     state: '',
     genre: '',
     search: '',
+    pagination: 0,
   }
   const [filterValues, setFilterValues] = useState(filters);
   useEffect(() => {
