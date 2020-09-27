@@ -3,7 +3,7 @@ import React from 'react';
 // Should probably break up the table into more components.  I say keep running for now.
 export const Table = (tableData) => {
   console.log('tableData: ', tableData);
-  const data = tableData.tableData;
+  const data = tableData.tableData.sort((a, b) => (a.name > b.name) ? 1 : -1);
   
   return (
     <table className="table">
