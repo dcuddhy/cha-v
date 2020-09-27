@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Table } from '../components/table';
-import { Filter } from '../components/filter';
+import { StateFilter } from '../components/StateFilter';
+import { GenreFilter } from '../components/GenreFilter';
 
 // Let's use app as a shell to display a home/index
 export const Index = (data) => {
@@ -11,7 +12,8 @@ export const Index = (data) => {
     <div className="first-div">
       Table below:
     </div>
-    <Filter name='state' />
+    <GenreFilter name='genre' />
+    <StateFilter name='state' />
     <Table tableData={tableData} />
     </>
   );

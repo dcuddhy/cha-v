@@ -12,6 +12,13 @@ const key = 'Api-Key q3MNxtfep8Gt';
 export const App = () => {
   const [filterValue, setFilterValue] = useState('');
   const [fetchedData, setFetchedData] = useState([]);
+
+  const filters = {
+    state: '',
+    genre: '',
+    search: [],
+  }
+  const [filterValues, setFilterValues] = useState(filters);
   useEffect(() => {
     fetch(URL, {
       headers: {
@@ -23,7 +30,7 @@ export const App = () => {
   }, [])
 
   return (
-    <FilterContext.Provider value={{filterValue, setFilterValue}}>
+    <FilterContext.Provider value={{filterValues, setFilterValues}}>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

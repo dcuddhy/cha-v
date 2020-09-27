@@ -3,12 +3,17 @@ import { FilterContext } from '../contexts/filterContext'
 
 // Should probably break up the table into more components.  I say keep running for now.
 export const Table = (tableData) => {
-  const data = tableData.tableData.sort((a, b) => (a.name > b.name) ? 1 : -1);
+  const {filterValues} = useContext(FilterContext);
 
-  const {filterValue} = useContext(FilterContext);
-  const filteredData = data.filter(elem => elem.state.toLowerCase().includes(filterValue.toLowerCase()));
+  const data = tableData.tableData.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    // State filter is pretty straight forward.
+    .filter(elem => elem.state.toLowerCase().includes(filterValues.state.toLowerCase()))
+    // Genre filtering logic should be an array of strings.  we should filter on each of those.
+    // User inputs should be an array separated by spaces, commas, periods.
+    // Then we should compare the two arrays.
+    .filter(elem => elem.genre.toLowerCase().includes(filterValues.genre.toLowerCase()));
 
-  return (
+    return (
     data.length ? 
     <table className="table">
       <thead>
@@ -31,7 +36,7 @@ export const Table = (tableData) => {
         </tr>
       </thead>
       <tbody>
-        {filteredData.map((row, r) => {
+        {data.map((row, r) => {
           return (
             <tr key={r}>
               <td>
