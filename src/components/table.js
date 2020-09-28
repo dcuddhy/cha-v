@@ -13,6 +13,8 @@ export const Table = (tableData) => {
   const {filterValues} = useContext(FilterContext);
 
   const data = tableData.tableData.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    // Attire filter is pretty straight forward.
+    .filter(elem => elem.attire.toLowerCase().includes(filterValues.attire.toLowerCase()))
     // State filter is pretty straight forward.
     .filter(elem => elem.state.toLowerCase().includes(filterValues.state.toLowerCase()))
     // Genre filtering logic should filter on an array of strings separated by commas.
@@ -52,6 +54,9 @@ export const Table = (tableData) => {
               <th>
                 Genres
               </th>
+              <th>
+                Attire
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -72,6 +77,9 @@ export const Table = (tableData) => {
                   </td>
                   <td>
                     {row.genre}
+                  </td>
+                  <td>
+                    {row.attire}
                   </td>
                 </tr>
               )

@@ -13,6 +13,7 @@ export const App = () => {
   const [fetchedData, setFetchedData] = useState([]);
 
   const filters = {
+    attire: '',
     genre: '',
     pagination: 0,
     search: '',
