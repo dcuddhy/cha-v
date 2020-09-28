@@ -1,3 +1,32 @@
+### September 2020
+
+### Drew Cuddhy Code Challenge
+
+```
+Drew Cuddhy
+dcuddhy@gmail.com
+609-408-5891
+```
+
+Find it live on [Netlify](https://cha-v.netlify.app/)!
+
+#### ACs:
+1. A user should be able to see a table with the name, city, state, phone number, and genres for each restaurant.
+1. A user should see results sorted by name in alphabetical order starting with the beginning of the alphabet
+1. A user should be able to filter restaurants by state. If a state is selected that does not contain any restaurants, there should be something that indicates no restaurants were found for that state.
+1. A user should be able to filter by genre.
+1. State and Genre filters should default to “All” and take effect instantaneously (no additional clicks).
+1. A user should be able to enter text into a search field. When hitting the enter key or clicking on a search button, the table should search results. Search results should match either the name, city, or genre.
+1. A user should be able to clear the search by clearing the text value in the search input.
+1. A user should only see 10 results at a time and the table should be paginated.
+1. A user should be able to combine filters and search. The user should be able to turn filters on and off while a search value is present.
+
+### Stretch Goals:
+1. Deployed application ([here](https://cha-v.netlify.app/))
+1. Add filter for attire
+1. Feel free to get creative! (only slightly)
+
+___
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
