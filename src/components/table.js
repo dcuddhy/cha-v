@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
-import { FilterContext } from '../contexts/filterContext'
 import { Pagination} from './Pagination'
+import { FilterContext } from '../contexts/filterContext'
+import './Table.css'
 
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (x, i) =>
@@ -32,54 +33,54 @@ export const Table = (tableData) => {
 
     return (
       displayData && displayData.length ?
-    <>
-      <Pagination pagesArray={pagesArray} />
-    <table className="table">
-      <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            City
-          </th>
-          <th>
-            State
-          </th>
-          <th>
-            Phone Number
-          </th>
-          <th>
-            Genres
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {displayData.map((row, r) => {
-          return (
-            <tr key={r}>
-              <td>
-                {row.name}
-              </td>
-              <td>
-                {row.city}
-              </td>
-              <td>
-                {row.state}
-              </td>
-              <td>
-                {row.telephone}
-              </td>
-              <td>
-                {row.genre}
-              </td>
+      <>
+        <table className="table">
+          <thead className="table-head">
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                City
+              </th>
+              <th>
+                State
+              </th>
+              <th>
+                Phone Number
+              </th>
+              <th>
+                Genres
+              </th>
             </tr>
-          )
-          })}
-      </tbody>
-    </table>
-    </>
+          </thead>
+          <tbody>
+            {displayData.map((row, r) => {
+              return (
+                <tr key={r}>
+                  <td>
+                    {row.name}
+                  </td>
+                  <td>
+                    {row.city}
+                  </td>
+                  <td>
+                    {row.state}
+                  </td>
+                  <td>
+                    {row.telephone}
+                  </td>
+                  <td>
+                    {row.genre}
+                  </td>
+                </tr>
+              )
+              })}
+          </tbody>
+        </table>
+        <Pagination pagesArray={pagesArray} />
+      </>
     : 
-    <div>Oops! There are no results...</div>
+      <div>Oops! There are no results...</div>
   );
 }

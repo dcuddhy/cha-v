@@ -5,7 +5,6 @@ import "./Pagination.css"
 export const Pagination = (pagesArray) => {
   const {filterValues, setFilterValues} = useContext(FilterContext);
 
-
   const clickHandler = (e) => {
     setFilterValues(
       {...filterValues,
@@ -14,9 +13,8 @@ export const Pagination = (pagesArray) => {
       );
   }
 
-  console.log('pagesArray: ', pagesArray.pagesArray);
   return (
-    <div>
+    <div className="pagination-container">
       {pagesArray.pagesArray.map(page => 
         <div key={`page-${page}`} className="page-button" id={`${page}`}onClick={clickHandler}> {page+1} </div>
         )}
