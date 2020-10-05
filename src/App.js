@@ -8,17 +8,16 @@ import { Index } from "./views/index";
 const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants';
 const key = 'Api-Key q3MNxtfep8Gt';
 
-// Let's use app as a shell to display a home/index
+const filters = {
+  attire: '',
+  genre: '',
+  pagination: 0,
+  search: '',
+  state: '',
+}
+
 export const App = () => {
   const [fetchedData, setFetchedData] = useState([]);
-
-  const filters = {
-    attire: '',
-    genre: '',
-    pagination: 0,
-    search: '',
-    state: '',
-  }
 
   const [filterValues, setFilterValues] = useState(filters);
   useEffect(() => {
@@ -33,11 +32,9 @@ export const App = () => {
 
   return (
     <FilterContext.Provider value={{filterValues, setFilterValues}}>
-      <div className="App">
-        <header className="App-header">
-          <Title />
-          <Index data={fetchedData} />
-        </header>
+      <div className="App app-base">
+        <Title />
+        <Index data={fetchedData} />
       </div>
     </FilterContext.Provider>
   );

@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { Filter } from '../components/Filter';
 import { FilterContext } from '../contexts/filterContext'
-import { Table } from '../components/table';
+import { Table } from '../components/Table';
 
 export const Index = (data) => {
   const tableData = data.data;
