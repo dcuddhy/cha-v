@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Title } from './components/Title'
 import {FilterContext} from "./contexts/filterContext"
-import { Index } from "./views/index";
+import { Index } from "./views/Index";
 
 // This had ought to be in an .env
 const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants';
