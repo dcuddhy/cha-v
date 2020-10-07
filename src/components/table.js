@@ -34,61 +34,64 @@ export const Table = (tableData) => {
     const displayData = paginatedData[filterValues.pagination];
 
     return (
-      displayData && displayData.length ?
       <>
-        <table className="table">
-          <thead className="table-head">
-            <tr>
-              <th>
-                Name
-              </th>
-              <th>
-                City
-              </th>
-              <th>
-                State
-              </th>
-              <th>
-                Phone Number
-              </th>
-              <th>
-                Genres
-              </th>
-              <th>
-                Attire
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {displayData.map((row, r) => {
-              return (
-                <tr key={r}>
-                  <td>
-                    {row.name}
-                  </td>
-                  <td>
-                    {row.city}
-                  </td>
-                  <td>
-                    {row.state}
-                  </td>
-                  <td>
-                    {row.telephone}
-                  </td>
-                  <td>
-                    {row.genre}
-                  </td>
-                  <td>
-                    {row.attire}
-                  </td>
-                </tr>
-              )
-              })}
-          </tbody>
-        </table>
-        <Pagination pagesArray={pagesArray} />
+      <div className="table-container">
+        { displayData && displayData.length ?
+          (<table className="table">
+            <thead className="table-head">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  City
+                </th>
+                <th>
+                  State
+                </th>
+                <th>
+                  Phone Number
+                </th>
+                <th>
+                  Genres
+                </th>
+                <th>
+                  Attire
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {displayData.map((row, r) => {
+                return (
+                  <tr key={r}>
+                    <td>
+                      {row.name}
+                    </td>
+                    <td>
+                      {row.city}
+                    </td>
+                    <td>
+                      {row.state}
+                    </td>
+                    <td>
+                      {row.telephone}
+                    </td>
+                    <td>
+                      {row.genre}
+                    </td>
+                    <td>
+                      {row.attire}
+                    </td>
+                  </tr>
+                )
+                })}
+            </tbody>
+          </table>)
+        : 
+        <div>Oops! There are no results...</div>
+      }
+      </div>
+      <Pagination pagesArray={pagesArray} />
       </>
-    : 
-      <div>Oops! There are no results...</div>
   );
 }

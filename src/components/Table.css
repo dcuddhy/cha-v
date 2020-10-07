@@ -1,5 +1,11 @@
+.table-container {
+  height: 20rem;
+}
+
 .table {
+  display: block;
   margin: 20px 0;
+  line-height: 1.5;
 }
 
 .table-head {
