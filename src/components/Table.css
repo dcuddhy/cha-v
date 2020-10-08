@@ -15,3 +15,27 @@
 .no-results {
   margin: 2rem;
 }
+
+.header-name {
+  min-width: 240px;
+}
+
+.header-city {
+  min-width: 168px;
+}
+
+.header-state {
+  min-width: 56px;
+}
+
+.header-phone-number {
+  min-width: 130px;
+}
+
+.header-genres {
+  min-width: 406px;
+}
+
+.header-attire {
+  min-width: 120px;
+}

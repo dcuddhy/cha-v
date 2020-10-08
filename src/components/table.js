@@ -42,22 +42,22 @@ export const Table = (tableData) => {
           (<table className="table">
             <thead className="table-head">
               <tr>
-                <th>
+                <th className="header-name">
                   Name
                 </th>
-                <th>
+                <th className="header-city">
                   City
                 </th>
-                <th>
+                <th className="header-state">
                   State
                 </th>
-                <th>
+                <th className="header-phone-number">
                   Phone Number
                 </th>
-                <th>
+                <th className="header-genres">
                   Genres
                 </th>
-                <th>
+                <th className="header-attire">
                   Attire
                 </th>
               </tr>
