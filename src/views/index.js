@@ -33,6 +33,8 @@ export const Index = (data) => {
 
   const searchChangeHandler = (e) => {
     const value = e.target.value;
+    console.log('e! ', e.target);
+    console.log('charcode! ', e.charCode);
 
     setSearchValue(value);
     if (value === "") {

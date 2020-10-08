@@ -9,7 +9,7 @@ export const Dropdown = (props) => {
   return (
     <div>
         {props.label}: 
-        <select name="channels" id="am-state-selection-dropdown" onChange={callChangeHandler}>
+        <select name="states" id="am-state-selection-dropdown" onChange={callChangeHandler}>
           <option key="option-blank" value="" > All </option>
           {amStates.map(amState => 
             <option key={`option-${amState}`} value={`${amState}`} > {amState} </ option>
