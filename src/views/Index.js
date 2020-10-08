@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import { Dropdown } from '../components/Dropdown';
 import { Filter } from '../components/Filter';
 import { generateList } from '../components/Helpers';
-import { Table } from '../components/TableTable';
+import { Table } from '../components/Table';
 import { FilterContext } from '../contexts/filterContext'
 
 export const Index = (data) => {
