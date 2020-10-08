@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import { Title } from './components/Title'
-import {FilterContext} from "./contexts/filterContext"
+import { FilterContext } from "./contexts/filterContext"
 import { Index } from "./views/Index";
+import './App.css';
 
-// This had ought to be in an .env
-const URL = 'https://code-challenge.spectrumtoolbox.com/api/restaurants';
-const key = 'Api-Key q3MNxtfep8Gt';
+const URL = process.env.REACT_APP_URL;
+const key = process.env.REACT_APP_KEY;
 
 const filters = {
   attire: '',

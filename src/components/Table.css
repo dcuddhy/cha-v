@@ -11,3 +11,7 @@
 .table-head {
   background: rgba(255, 255, 255, 0.2);
 }
+
+.no-results {
+  margin: 2rem;
+}

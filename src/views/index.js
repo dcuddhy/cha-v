@@ -1,22 +1,35 @@
 import React, {useContext, useState} from 'react';
+import { Dropdown } from '../components/Dropdown';
 import { Filter } from '../components/Filter';
-import { FilterContext } from '../contexts/filterContext'
+import { generateList } from '../components/Helpers';
 import { Table } from '../components/Table';
+import { FilterContext } from '../contexts/filterContext'
 
 export const Index = (data) => {
   const tableData = data.data;
   const {filterValues, setFilterValues} = useContext(FilterContext);
+  const [searchValue, setSearchValue] = useState('');
+  const amStates = generateList(tableData, 'state');
+  const attires = generateList(tableData, 'attire');
+  const genres = generateList(tableData, 'genre');
 
-  const attireChangeHandler = (e) => {
+  const attireChangeHandler = (value) => {
     setFilterValues(
       {...filterValues,
-        attire: e.target.value,
+        attire: value,
         pagination: 0,
       },
-      );
+    );
   }
 
-  const [searchValue, setSearchValue] = useState('');
+  const genreChangeHandler = (value) => {
+    setFilterValues(
+      {...filterValues,
+        genre: value,
+        pagination: 0,
+      },
+    );
+  }
 
   const searchChangeHandler = (e) => {
     const value = e.target.value;
@@ -26,6 +39,7 @@ export const Index = (data) => {
       searchSubmitHandler(value);
     }
   }
+
   const searchSubmitHandler = (value) => {
     setFilterValues(
       {...filterValues,
@@ -35,28 +49,10 @@ export const Index = (data) => {
     );
   }
 
-
-
-
-
-  const stateChangeHandler = (e) => {
+  const stateChangeHandler = (value) => {
     setFilterValues(
       {...filterValues,
-        state: e.target.value,
-        pagination: 0,
-      },
-      );
-  }
-  
-  const [genreValue, setGenreValue] = useState('');
-
-  const genreChangeHandler = (e) => {
-    setGenreValue(e.target.value);
-  }
-  const genreSubmitHandler = (value) => {
-    setFilterValues(
-      {...filterValues,
-        genre: value,
+        state: value,
         pagination: 0,
       },
     );
@@ -64,13 +60,10 @@ export const Index = (data) => {
 
   return (
     <>
-      DONE
       <Filter name='search' label="Search Filter" changeHandler={searchChangeHandler} value={searchValue} filterValues={filterValues} submitHandler={searchSubmitHandler} />
-
-      Genre, State, Attire should be dropdowns
-      {/* <Filter name='genre' label="Genre Filter" changeHandler={genreChangeHandler} value={genreValue} filterValues={filterValues} submitHandler={genreSubmitHandler}/> */}
-      {/* <Filter name='state' label="State Filter" changeHandler={stateChangeHandler} filterValues={filterValues} />
-      <Filter name='attire' label="Attire Filter" changeHandler={attireChangeHandler} filterValues={filterValues} /> */}
+      <Dropdown name='state' label="State Filter" changeHandler={stateChangeHandler} values={amStates} filterValues={filterValues} />
+      <Dropdown name='genre' label="Genre Filter" changeHandler={genreChangeHandler} values={genres} filterValues={filterValues} />
+      <Dropdown name='attire' label="Attire Filter" changeHandler={attireChangeHandler} values={attires} filterValues={filterValues} />
       <Table tableData={tableData} />
     </>
   );

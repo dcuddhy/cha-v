@@ -14,7 +14,9 @@ export const Table = (tableData) => {
 
   const data = tableData.tableData.sort((a, b) => (a.name > b.name) ? 1 : -1)
     // Attire filter is pretty straight forward.
-    .filter(elem => elem.attire.toLowerCase().includes(filterValues.attire.toLowerCase()))
+    .filter(elem => elem.attire.toLowerCase() === filterValues.attire.toLowerCase()
+    || filterValues.attire.toLowerCase() === ''
+    )
     // State filter is pretty straight forward.
     .filter(elem => elem.state.toLowerCase().includes(filterValues.state.toLowerCase()))
     // Genre filtering logic should filter on an array of strings separated by commas.
@@ -88,7 +90,7 @@ export const Table = (tableData) => {
             </tbody>
           </table>)
         : 
-        <div>Oops! There are no results...</div>
+          <div className="no-results"> Oops! There are no results... </div>
       }
       </div>
       <Pagination pagesArray={pagesArray} />
