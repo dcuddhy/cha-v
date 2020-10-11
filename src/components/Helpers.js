@@ -28,7 +28,7 @@ const titleCase = (string) => {
 }
 
 export const generateList = (data, key) => {
-  const fullArray = data && data.length ? data.map((item) => titleCase(item[key]).split(',')).flat() : [];
+  const fullArray = data && data.length ? data.map((item) => titleCase(item[key]).split(',')).flat().sort() : [];
 
   return [...new Set(fullArray)];
 }
