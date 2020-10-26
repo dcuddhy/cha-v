@@ -10,9 +10,9 @@ dcuddhy@gmail.com
 
 Find it live on [Netlify](https://cha-v.netlify.app/)!
 
-<img src="https://user-images.githubusercontent.com/8904409/97122379-0a3fa180-16eb-11eb-9d9c-329b24d698a1.png">
+<img width="100%" src="https://user-images.githubusercontent.com/8904409/97122379-0a3fa180-16eb-11eb-9d9c-329b24d698a1.png">
 
-<img src="https://user-images.githubusercontent.com/8904409/97122461-99e55000-16eb-11eb-8133-2ff6dcd65dc1.gif">
+<img width="100%" src="https://user-images.githubusercontent.com/8904409/97122461-99e55000-16eb-11eb-8133-2ff6dcd65dc1.gif">
 
 
 
